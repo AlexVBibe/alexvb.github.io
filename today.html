@@ -1,445 +1,631 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>3. Training & Workout Intelligence — IronSet Docs</title>
-        <style>
-            :root {
-                --bg: #0f1115;
-                --panel: #171a21;
-                --panel-alt: #1e222b;
-                --border: #2a2f3a;
-                --text: #e8eaed;
-                --text-dim: #9aa1ac;
-                --accent: #ff4d4d;
-                --accent-2: #ffcc00;
-                --accent-3: #4dabf7;
-                --green: #4caf50;
-                --radius: 10px;
-            }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3. Training & Workout Intelligence — IronSet Manual</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-alt: #1e222b;
+    --border: #2a2f3a;
+    --text: #e8eaed;
+    --text-dim: #9aa1ac;
+    --accent: #ff4d4d;
+    --accent-2: #ffcc00;
+    --accent-3: #4dabf7;
+    --green: #4caf50;
+    --radius: 10px;
+  }
 
-            * {
-                box-sizing: border-box;
-            }
+  * { box-sizing: border-box; }
 
-            body {
-                margin: 0;
-                background: linear-gradient(180deg, #0f1115 0%, #12151b 100%);
-                color: var(--text);
-                font-family:
-                    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                    Helvetica, Arial, sans-serif;
-                line-height: 1.6;
-                padding: 40px 20px 80px;
-            }
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #0f1115 0%, #12151b 100%);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    padding: 40px 20px 80px;
+  }
 
-            .container {
-                max-width: 820px;
-                margin: 0 auto;
-            }
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
 
-            .eyebrow {
-                color: var(--accent);
-                font-weight: 700;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                font-size: 13px;
-                margin-bottom: 6px;
-            }
+  .eyebrow {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
 
-            h1 {
-                font-size: 30px;
-                margin: 0 0 6px;
-                letter-spacing: -0.01em;
-            }
+  h1 {
+    font-size: 30px;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
 
-            .subtitle {
-                color: var(--text-dim);
-                font-size: 15px;
-                margin-bottom: 40px;
-            }
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
 
-            h2 {
-                font-size: 21px;
-                margin: 48px 0 6px;
-                padding-bottom: 10px;
-                border-bottom: 1px solid var(--border);
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
+  h2 {
+    font-size: 21px;
+    margin: 48px 0 6px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-            h2 .num {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 28px;
-                height: 28px;
-                border-radius: 8px;
-                background: var(--accent);
-                color: #fff;
-                font-size: 14px;
-                font-weight: 700;
-                flex-shrink: 0;
-            }
+  h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
 
-            .section-desc {
-                color: var(--text-dim);
-                margin: 4px 0 18px;
-                font-size: 15px;
-            }
+  h3.sub {
+    font-size: 18px;
+    margin: 30px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-            .card {
-                background: var(--panel);
-                border: 1px solid var(--border);
-                border-radius: var(--radius);
-                padding: 18px 20px;
-                margin-bottom: 16px;
-            }
+  h3.sub .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    background: var(--accent-3);
+    color: #0f1115;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
 
-            .card h3 {
-                margin: 0 0 8px;
-                font-size: 16px;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
+  .section-desc {
+    color: var(--text-dim);
+    margin: 4px 0 18px;
+    font-size: 15px;
+  }
 
-            ul {
-                margin: 0;
-                padding-left: 0;
-                list-style: none;
-            }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
 
-            ul.top-level > li {
-                margin-bottom: 14px;
-                padding-left: 22px;
-                position: relative;
-            }
+  .card h4 {
+    margin: 0 0 8px;
+    font-size: 15.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+  }
 
-            ul.top-level > li::before {
-                content: '•';
-                color: var(--accent);
-                position: absolute;
-                left: 4px;
-                font-size: 18px;
-                line-height: 1.4;
-            }
+  .card h4 .idx {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
 
-            ul.nested {
-                margin-top: 8px;
-            }
+  .card p.desc {
+    color: var(--text-dim);
+    font-size: 14.5px;
+    margin: 0 0 10px;
+  }
 
-            ul.nested > li {
-                padding-left: 22px;
-                position: relative;
-                margin-bottom: 8px;
-                color: var(--text-dim);
-                font-size: 14.5px;
-            }
+  ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
 
-            ul.nested > li::before {
-                content: '○';
-                color: var(--accent-3);
-                position: absolute;
-                left: 4px;
-                font-size: 11px;
-                top: 6px;
-            }
+  ul.top-level > li {
+    margin-bottom: 10px;
+    padding-left: 22px;
+    position: relative;
+    font-size: 14.5px;
+    color: var(--text-dim);
+  }
 
-            .label-strong {
-                color: var(--text);
-                font-weight: 600;
-            }
+  ul.top-level > li::before {
+    content: "•";
+    color: var(--accent);
+    position: absolute;
+    left: 4px;
+    font-size: 18px;
+    line-height: 1.4;
+  }
 
-            .pill {
-                display: inline-block;
-                font-size: 11px;
-                font-weight: 700;
-                padding: 2px 9px;
-                border-radius: 999px;
-                text-transform: uppercase;
-                letter-spacing: 0.03em;
-                margin-left: 6px;
-                vertical-align: middle;
-            }
+  ul.nested {
+    margin-top: 8px;
+  }
 
-            .pill-warmup {
-                background: rgba(255, 204, 0, 0.15);
-                color: var(--accent-2);
-                border: 1px solid rgba(255, 204, 0, 0.35);
-            }
-            .pill-working {
-                background: rgba(255, 77, 77, 0.15);
-                color: var(--accent);
-                border: 1px solid rgba(255, 77, 77, 0.35);
-            }
-            .pill-pilot {
-                background: rgba(77, 171, 247, 0.15);
-                color: var(--accent-3);
-                border: 1px solid rgba(77, 171, 247, 0.35);
-            }
+  ul.nested > li {
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 8px;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
 
-            .grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-                margin-top: 10px;
-            }
+  ul.nested > li::before {
+    content: "○";
+    color: var(--accent-3);
+    position: absolute;
+    left: 4px;
+    font-size: 11px;
+    top: 6px;
+  }
 
-            @media (max-width: 600px) {
-                .grid {
-                    grid-template-columns: 1fr;
-                }
-            }
+  ol.lettered {
+    margin: 8px 0 0;
+    padding-left: 0;
+    list-style: none;
+  }
 
-            .metric-box {
-                background: var(--panel-alt);
-                border: 1px solid var(--border);
-                border-radius: 8px;
-                padding: 12px 14px;
-            }
+  ol.lettered > li {
+    counter-increment: letter-count;
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 10px;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
 
-            .metric-box .metric-name {
-                font-weight: 600;
-                font-size: 14px;
-                margin-bottom: 4px;
-                color: var(--text);
-            }
+  ol.lettered {
+    counter-reset: letter-count;
+  }
 
-            .metric-box .metric-desc {
-                font-size: 13.5px;
-                color: var(--text-dim);
-            }
+  ol.lettered > li::before {
+    content: counter(letter-count, lower-alpha) ".";
+    color: var(--accent-3);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    font-size: 13px;
+  }
 
-            .callout {
-                display: flex;
-                gap: 10px;
-                align-items: flex-start;
-                background: rgba(77, 171, 247, 0.08);
-                border: 1px solid rgba(77, 171, 247, 0.25);
-                border-left: 3px solid var(--accent-3);
-                border-radius: 8px;
-                padding: 12px 14px;
-                font-size: 14px;
-                color: var(--text-dim);
-                margin-top: 14px;
-            }
+  .label-strong {
+    color: var(--text);
+    font-weight: 600;
+  }
 
-            .callout .icon {
-                font-size: 16px;
-                flex-shrink: 0;
-            }
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
 
-            .callout strong {
-                color: var(--text);
-            }
+  .pill-green { background: rgba(76, 175, 80, 0.15); color: var(--green); border: 1px solid rgba(76,175,80,0.35); }
+  .pill-warmup { background: rgba(255, 204, 0, 0.15); color: var(--accent-2); border: 1px solid rgba(255,204,0,0.35); }
+  .pill-working { background: rgba(255, 77, 77, 0.15); color: var(--accent); border: 1px solid rgba(255,77,77,0.35); }
+  .pill-pilot { background: rgba(77, 171, 247, 0.15); color: var(--accent-3); border: 1px solid rgba(77,171,247,0.35); }
 
-            .intensity-scale {
-                display: flex;
-                gap: 4px;
-                margin-top: 10px;
-                height: 10px;
-                border-radius: 6px;
-                overflow: hidden;
-            }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+  }
 
-            .intensity-scale div {
-                flex: 1;
-            }
+  .grid.three {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
-            .divider-note {
-                text-align: center;
-                color: var(--text-dim);
-                font-size: 12px;
-                margin: 14px 0;
-                opacity: 0.6;
-            }
+  @media (max-width: 600px) {
+    .grid, .grid.three { grid-template-columns: 1fr; }
+  }
 
-            .screen-placeholder {
-                border: 1px dashed var(--border);
-                border-radius: 8px;
-                padding: 10px 14px;
-                font-size: 12.5px;
-                color: var(--text-dim);
-                text-align: center;
-                margin: 14px 0;
-                background: var(--panel-alt);
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="eyebrow">IronSet Documentation</div>
-            <h1>3. Training &amp; Workout Intelligence</h1>
-            <p class="subtitle">
-                How IronSet guides, scores, and tracks every training session.
-            </p>
+  .metric-box {
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
 
-            <!-- 3.1 -->
-            <h2><span class="num">3.1</span> The "Today" Dashboard</h2>
-            <p class="section-desc">Your central hub for daily training.</p>
+  .metric-box .metric-name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
 
-            <div class="card">
-                <ul class="top-level">
-                    <li>
-                        <span class="label-strong">Workout Selection:</span>
-                        Choose from your active workout routines.
-                    </li>
-                    <li>
-                        <span class="label-strong">Workout Score:</span> IronSet
-                        evaluates every routine based on:
-                        <ul class="nested">
-                            <li>
-                                <span class="label-strong">Readiness</span> —
-                                Your physical preparedness based on recent
-                                fatigue and recovery.
-                            </li>
-                            <li>
-                                <span class="label-strong">Progression</span> —
-                                The mathematical opportunity to increase volume
-                                or intensity.
-                            </li>
-                            <li>
-                                <span class="label-strong">Priority</span> — How
-                                the workout aligns with your weekly schedule.
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="label-strong">Recommendations:</span> If a
-                        workout score exceeds <strong>1.0</strong>, the Bar
-                        Chart icon will become active, offering an AI-optimized
-                        session plan.
-                    </li>
+  .metric-box .metric-desc {
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+
+  .callout {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: rgba(77, 171, 247, 0.08);
+    border: 1px solid rgba(77, 171, 247, 0.25);
+    border-left: 3px solid var(--accent-3);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-top: 14px;
+  }
+
+  .callout.warn {
+    background: rgba(255, 204, 0, 0.08);
+    border-color: rgba(255, 204, 0, 0.3);
+    border-left-color: var(--accent-2);
+  }
+
+  .callout .icon {
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .callout strong {
+    color: var(--text);
+  }
+
+  .summary-box {
+    background: var(--panel-alt);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin: 24px 0;
+  }
+
+  .summary-box .tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-3);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .summary-box p {
+    margin: 0 0 6px;
+    color: var(--text-dim);
+    font-size: 14.5px;
+  }
+
+  .summary-box ol {
+    margin: 8px 0 0;
+    padding-left: 20px;
+    color: var(--text-dim);
+    font-size: 14.5px;
+  }
+
+  .summary-box ol li { margin-bottom: 4px; }
+
+  .screen-placeholder {
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: var(--text-dim);
+    text-align: center;
+    margin: 14px 0;
+    background: var(--panel-alt);
+  }
+
+  .toc {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 22px;
+    margin-bottom: 12px;
+  }
+
+  .toc .tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .toc a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14.5px;
+  }
+
+  .toc a:hover { color: var(--accent-3); }
+
+  .toc ol {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-dim);
+  }
+
+  .toc li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="eyebrow">IronSet Documentation</div>
+  <h1>3. Training &amp; Workout Intelligence</h1>
+  <p class="subtitle">How IronSet guides, scores, and tracks every training session.</p>
+
+  <nav class="toc">
+    <span class="tag">Contents</span>
+    <ol>
+      <li><a href="#today">3.1 The "Today" Dashboard</a></li>
+      <li><a href="#copilot">3.2 Gym Co-Pilot (Autopilot)</a></li>
+    </ol>
+  </nav>
+
+  <!-- 3.1 -->
+  <h2 id="today"><span class="num">3.1</span> The "Today" Dashboard</h2>
+  <p class="section-desc">
+    The Today dashboard serves as your personal workout dashboard and "command centre" for the day. It's designed to help you quickly choose a workout, see your progress, and get AI-powered guidance. Here is a breakdown of its interface and functionality.
+  </p>
+
+  <div class="card">
+    <h4><span class="idx">1</span> Workout &amp; Exercise Selection</h4>
+    <ol class="lettered">
+      <li><span class="label-strong">Active Workouts</span> — The widget displays a list of workouts you've previously set up. You can easily switch between different routines (like "Push," "Pull," or "Legs").</li>
+      <li><span class="label-strong">Exercise Preview</span> — Once a workout is selected, it shows the specific exercises included in that routine.</li>
+      <li><span class="label-strong">Smart Scrolling</span> — If you have many workouts or exercises, the app automatically scrolls to highlight your currently active selection so you don't have to hunt for it.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h4><span class="idx">2</span> AI Coach &amp; Insights</h4>
+    <p class="desc">This is the "brain" of the widget. By tapping the Info or Chart icons:</p>
+    <ol class="lettered">
+      <li><span class="label-strong">Performance Analysis</span> — The app looks at your recent history (like your last 3 sessions for a workout) and sends it to an AI (Google Gemini).</li>
+      <li><span class="label-strong">Personalized Recommendations</span> — It generates specific advice, such as whether you should increase your weight, adjust your reps, or focus on a particular form improvement.</li>
+      <li><span class="label-strong">Apply &amp; Start</span> — If the AI suggests a specific "Autopilot" adjustment (e.g., "Increase bench press to 60kg for better progression"), you can tap "Apply &amp; Start" to immediately begin your session with those optimized targets.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h4><span class="idx">3</span> Workout Readiness &amp; Scoring</h4>
+    <p class="desc">
+      The widget calculates Workout Scores using a background service. This helps you identify which workout you are most "ready" for based on your recovery and past performance, guiding you to pick the most effective session for that day.
+    </p>
+    <p class="desc">
+      The Workout Readiness &amp; Scoring system acts as an intelligent advisor that helps you decide which workout is best for you to perform today. It calculates an overall Workout Score for each of your routines using three main factors:
+    </p>
+
+    <h4 style="margin-top:18px;">Readiness <span style="font-weight:400;color:var(--text-dim);font-size:13.5px;">(The Recovery Factor)</span></h4>
+    <p class="desc" style="margin-bottom:0;">This measures how recovered you are for a specific workout. It looks at your recent training volume and fatigue levels. If you've worked those muscles hard very recently, your readiness score will be lower, suggesting you might need more rest.</p>
+
+    <h4 style="margin-top:18px;">Progression Opportunity <span style="font-weight:400;color:var(--text-dim);font-size:13.5px;">(The Growth Factor)</span></h4>
+    <p class="desc" style="margin-bottom:6px;">This is a "bonus" score (1.1x) given to workouts where you are currently trending upward. The system looks at:</p>
+    <ul class="nested">
+      <li><span class="label-strong">Performance Trends</span> — Is your recent performance better than or equal to your long-term average?</li>
+      <li><span class="label-strong">Success History</span> — Did you successfully complete your last session without reaching premature failure?</li>
+    </ul>
+    <p class="desc" style="margin-top:6px;">If both are true, the app identifies this as a prime opportunity to make progress.</p>
+
+    <h4 style="margin-top:18px;">Schedule Priority <span style="font-weight:400;color:var(--text-dim);font-size:13.5px;">(The Consistency Factor)</span></h4>
+    <p class="desc" style="margin-bottom:6px;">This tracks how long it has been since you last performed a specific workout. The app uses a 5-day recovery cycle as a target:</p>
+    <ul class="nested">
+      <li>As more days pass since you last did a "Leg" day, its priority score increases.</li>
+      <li>It maxes out once you've hit the target interval, effectively "flagging" that workout as overdue.</li>
+    </ul>
+
+    <h4 style="margin-top:18px;">The "Rest" Option</h4>
+    <p class="desc" style="margin-bottom:0;">The system also calculates a score for Rest. If the readiness scores for all your actual workouts are low (meaning you are generally fatigued), the "Rest" score will rise to the top, signalling that a recovery day might be more beneficial than hitting the gym.</p>
+
+    <h4 style="margin-top:18px;">How to Use It in the UI</h4>
+    <p class="desc" style="margin-bottom:6px;">In the Workout Intelligence section of the widget, you'll see these scores displayed:</p>
+    <ul class="nested">
+      <li><span class="label-strong">Green Score (1.0+)</span> <span class="pill pill-green">Recommended</span> — This indicates a highly recommended workout. You'll see a Chart/Insight icon appear next to these, allowing you to get an AI-generated plan for that specific session.</li>
+      <li><span class="label-strong">Readiness / Progression / Priority values</span> — You can see the raw numbers for each metric to understand why a workout is being recommended (e.g., "I have a high priority because I haven't done this in 6 days").</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4><span class="idx">4</span> Hands-Free Navigation <span style="font-weight:400;color:var(--text-dim);font-size:13px;">(Tilt Control)</span></h4>
+    <p class="desc" style="margin:0;">If enabled in your settings, the widget supports Tilt Navigation. This allows you to scroll through your workout list by simply tilting your phone — useful when your hands are sweaty or you're wearing lifting gloves.</p>
+  </div>
+
+  <div class="card">
+    <h4><span class="idx">5</span> Last Session Recap</h4>
+    <p class="desc" style="margin:0;">It displays a summary of your Last Workout Details, so you can quickly remind yourself of the weights and reps you achieved last time before you start your new set.</p>
+  </div>
+
+  <div class="summary-box">
+    <span class="tag">In Short</span>
+    <p>
+        It's a "one-stop shop" where you can see what you've done, get AI-driven advice on what to do next, and jump straight into a session with optimized goals.
+        Your central hub for daily training.
+        <ul>
+
+            <li><span class="label-strong">Workout Selection: Choose from your active workout routines.</span>
+            <li><span class="label-strong">Workout Score: IronSet evaluates every routine based on:</span>
+                <ul class="nested">
+                    <li><span class="label-strong">Readiness: Your physical preparedness based on recent fatigue and recovery.</span>
+                    <li><span class="label-strong">Progression: The mathematical opportunity to increase volume or intensity.</span>
+                    <li><span class="label-strong">Priority: How the workout aligns with your weekly schedule.</span>
                 </ul>
+            <li><span class="label-strong">Recommendations: If a workout score exceeds 1.0, the Bar Chart icon will become active, offering an AI-optimized session plan.</span>
+        </ul>
 
-                <div class="screen-placeholder">
-                    📊 Today Dashboard — screen preview
-                </div>
-
-                <p class="section-desc" style="margin-top: 14px">
-                    The screen is designed to start and track your workout
-                    session. Here, you can find all the workouts and exercises
-                    you selected on the Setup screen. Select the workout or
-                    exercise you want to perform and start tracking your
-                    progress.
-                </p>
-            </div>
-
-            <!-- 3.2 -->
-            <h2>
-                <span class="num">3.2</span> Gym Co-Pilot
-                <span
-                    style="
-                        font-weight: 400;
-                        color: var(--text-dim);
-                        font-size: 16px;
-                    "
-                    >(Autopilot)</span
-                >
-            </h2>
-            <p class="section-desc">
-                The Gym Co-Pilot is your real-time buddy during a session.
-            </p>
-
-            <div class="card">
-                <h3>Guided Execution</h3>
-                <p class="metric-desc" style="margin: 0 0 10px">
-                    It walks you through every set, including
-                    <span class="pill pill-warmup">Warm-up Sets · Yellow</span>
-                    and
-                    <span class="pill pill-working">Working Sets · Red</span>
-                </p>
-
-                <h3 style="margin-top: 18px">Session Management</h3>
-                <ul class="nested" style="margin-top: 6px">
-                    <li>
-                        <span class="label-strong">Confirm</span> — Validates a
-                        successful set.
-                    </li>
-                    <li>
-                        <span class="label-strong">Failed</span> — Triggers a
-                        failure report (input actual reps managed).
-                    </li>
-                    <li>
-                        <span class="label-strong">Later (Defer)</span> — Moves
-                        the current exercise to the end of the session.
-                    </li>
-                    <li>
-                        <span class="label-strong">Skip</span> — Skips the
-                        current set or exercise.
-                    </li>
-                </ul>
-
-                <h3 style="margin-top: 18px">Persistence</h3>
-                <p class="metric-desc" style="margin: 0">
-                    If you pause a session, you can resume it later that day. If
-                    left overnight, the Co-Pilot will automatically finalize the
-                    data to maintain history integrity.
-                </p>
-
-                <div class="screen-placeholder">
-                    🏋️ Gym Co-Pilot — session flow preview
-                </div>
-
-                <div class="callout">
-                    <span class="icon">⚠️</span>
-                    <div>
-                        <strong>Note:</strong> Gym Co-Pilot is in pilot mode
-                        <span class="pill pill-pilot">Pilot</span> — it is being
-                        tested and changes will follow.
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3.3 -->
-            <h2><span class="num">3.3</span> Active Tracking</h2>
-            <p class="section-desc">
-                Use the Track widget for manual set recording.
-            </p>
-
-            <div class="card">
-                <h3>Visual Feedback</h3>
-                <p class="metric-desc" style="margin: 0 0 4px">
-                    Real-time charts compare your
-                    <strong>"Today"</strong> performance against your
-                    <strong>"Last Session"</strong> and
-                    <strong>"Expected Volume."</strong>
-                </p>
-
-                <h3 style="margin-top: 18px">Performance Metrics</h3>
-                <div class="grid">
-                    <div class="metric-box">
-                        <div class="metric-name">Performance Index</div>
-                        <div class="metric-desc">
-                            A percentage reflecting how well you performed
-                            against your estimated capabilities.
-                        </div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-name">Fatigue Level</div>
-                        <div class="metric-desc">
-                            Tracks the drop in power output across sets.
-                        </div>
-                    </div>
-                    <div class="metric-box" style="grid-column: 1 / -1">
-                        <div class="metric-name">Intensity</div>
-                        <div class="metric-desc">
-                            A color-coded indicator warning you when intensity
-                            levels are suboptimal or excessive.
-                        </div>
-                        <div class="intensity-scale">
-                            <div style="background: #4caf50"></div>
-                            <div style="background: #8bc34a"></div>
-                            <div style="background: #ffcc00"></div>
-                            <div style="background: #ff9800"></div>
-                            <div style="background: #ff4d4d"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="screen-placeholder">
+            <img
+                src="images/today.png"
+                alt="Today screen"
+                style="max-width: 100%; border-radius: 8px"
+            />
         </div>
-    </body>
+                            <div class="screen-placeholder">
+            <img
+                src="images/today_workout_intelligence.png"
+                alt="Setup ai cost set up"
+                style="max-width: 100%; border-radius: 8px"
+            />
+        </div>
+
+        The screen is designed to start and track your workout session.
+        Here, you can find all the workouts and exercises you selected on the Setup screen. Select the workout or exercise you want to perform and start tracking your progress.
+    </p>
+  </div>
+
+  <div class="card">
+    <p class="desc" style="margin-bottom:10px;">Your central hub for daily training.</p>
+    <ul class="top-level">
+      <li><span class="label-strong">Workout Selection:</span> Choose from your active workout routines.</li>
+      <li>
+        <span class="label-strong">Workout Score:</span> IronSet evaluates every routine based on:
+        <ul class="nested">
+          <li><span class="label-strong">Readiness</span> — Your physical preparedness based on recent fatigue and recovery.</li>
+          <li><span class="label-strong">Progression</span> — The mathematical opportunity to increase volume or intensity.</li>
+          <li><span class="label-strong">Priority</span> — How the workout aligns with your weekly schedule.</li>
+        </ul>
+      </li>
+      <li><span class="label-strong">Recommendations:</span> If a workout score exceeds <strong>1.0</strong>, the Bar Chart icon will become active, offering an AI-optimized session plan.</li>
+    </ul>
+
+    <div class="screen-placeholder">📊 Today Dashboard — screen preview</div>
+
+    <p class="desc" style="margin-top:14px;">
+      The screen is designed to start and track your workout session. Here, you can find all the workouts and exercises you selected on the Setup screen. Select the workout or exercise you want to perform and start tracking your progress.
+    </p>
+  </div>
+
+  <!-- 3.2 -->
+  <h2 id="copilot"><span class="num">3.2</span> Gym Co-Pilot <span style="font-weight:400;color:var(--text-dim);font-size:16px;">(Autopilot)</span></h2>
+  <p class="section-desc">
+    Gym Co-Pilot (Autopilot) is your intelligent, real-time training assistant. It is purely based on your past workout sessions logged and does not use AI insights. It is currently undergoing pilot testing and its logic will be improved. Once you've selected an AI-recommended workout, Autopilot takes over the logistics of your session so you can focus entirely on the lifting.
+  </p>
+  <p class="section-desc" style="margin-top:-10px;">Here is a detailed breakdown of how it works:</p>
+
+  <div class="card">
+    <h4><span class="idx">1</span> Guided Progression <span style="font-weight:400;color:var(--text-dim);font-size:13px;">(Sets &amp; Reps)</span></h4>
+    <p class="desc">Autopilot doesn't just tell you what to do; it manages your entire session flow:</p>
+    <ul class="top-level">
+      <li>
+        <span class="label-strong">Warm-up Integration</span> <span class="pill pill-warmup">Yellow</span> — It automatically schedules and tracks warm-up sets before your <span class="label-strong">working</span> <span class="pill pill-working">Red</span> sets to ensure you're prepared.
+      </li>
+      <li><span class="label-strong">Automatic Transitions</span> — Once you finish a set, it automatically queues up the next one or moves you to the next exercise in your routine.</li>
+      <li><span class="label-strong">Completion Tracking</span> — It tracks your progress through the entire workout, letting you know when you've successfully finished your planned routine.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4><span class="idx">2</span> Smart Weight Adjustments</h4>
+    <p class="desc">One of the most powerful features is how it handles changes on the fly. If you find a weight is too heavy or too light:</p>
+    <ul class="top-level">
+      <li><span class="label-strong">Dynamic Rep Scaling</span> — If you manually adjust the weight, the Co-Pilot instantly recalculates the required number of reps to maintain the same "Target Intensity" (1RM). This ensures you're still getting the intended training stimulus even if you change the load.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4><span class="idx">3</span> Equipment Flexibility <span style="font-weight:400;color:var(--text-dim);font-size:13px;">(Deferring Exercises)</span></h4>
+    <p class="desc" style="margin-bottom:10px;">Gyms get crowded. If the equipment for your next exercise is occupied:</p>
+    <ul class="top-level">
+      <li><span class="label-strong">Defer Exercise</span> — You can "push" your current exercise to the end of the workout queue. The Co-Pilot will immediately bring up the next exercise in your list so you don't waste time waiting.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4><span class="idx">4</span> Performance &amp; Failure Tracking</h4>
+    <p class="desc">The Co-Pilot is constantly "watching" your stats to update your fitness profile:</p>
+    <ul class="top-level">
+      <li><span class="label-strong">Failure Reporting</span> — If you hit a point where you can't complete a rep, you can report it. The system records exactly how many reps you finished before failure.</li>
+      <li>
+        <span class="label-strong">Instant Analytics</span> — For every set completed, it calculates:
+        <ul class="nested">
+          <li><span class="label-strong">Performance</span> — How you did compared to your historical "Best."</li>
+          <li><span class="label-strong">Fatigue</span> — How much your strength is dropping as the session progresses.</li>
+          <li><span class="label-strong">Estimated 1RM</span> — An updated estimate of your maximum strength based on that specific set.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4><span class="idx">5</span> Session Management</h4>
+    <ol class="lettered">
+      <li><span class="label-strong">Pause &amp; Resume</span> — You can pause your workout if you need to step away. If you resume on the same day, it picks up exactly where you left off. If you wait until the next day, it intelligently marks the session as complete to keep your data clean.</li>
+      <li><span class="label-strong">Skip Option</span> — If you're short on time or an injury flares up, you can skip an entire exercise, and the Co-Pilot will reorganize the remaining session for you.</li>
+    </ol>
+  </div>
+
+  <div class="screen-placeholder">🏋️ Gym Co-Pilot — session flow preview</div>
+
+  <div class="summary-box">
+    <span class="tag">Summary</span>
+    <p>Think of the Gym Co-Pilot as a digital personal trainer who:</p>
+    <ol>
+      <li>Writes your plan (based on AI insights).</li>
+      <li>Adjusts your plan (if weights change or machines are full).</li>
+      <li>Logs your results (calculating your strength gains in real-time).</li>
+    </ol>
+  </div>
+
+  <div class="callout warn">
+    <span class="icon">⚠️</span>
+    <div><strong>Note:</strong> Gym Co-Pilot is in pilot mode <span class="pill pill-pilot">Pilot</span> — it is being tested and changes will follow.</div>
+  </div>
+
+                      <div class="screen-placeholder">
+                        <img
+                            src="images/today_copilot_start.png"
+                            alt="Today copilot start"
+                            style="max-width: 100%; border-radius: 8px"
+                        />
+                    </div>
+                    <div class="screen-placeholder">
+                        <img
+                            src="images/today_copilot_info.png"
+                            alt="Today copilot info"
+                            style="max-width: 100%; border-radius: 8px"
+                        />
+                    </div>
+                    <div class="screen-placeholder">
+                        <img
+                            src="images/today_copilot_progress.png"
+                            alt="Today copilot progress"
+                            style="max-width: 100%; border-radius: 8px"
+                        />
+                    </div>
+
+</div>
+</body>
 </html>
