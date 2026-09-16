@@ -1,0 +1,185 @@
+# IronSet Privacy Policy
+
+**Last updated: 16 September 2026**
+
+This Privacy Policy explains how **IronSet**, developed by **4Food Production**, handles information when you use the IronSet mobile application.
+
+We respect your privacy. IronSet is designed so that your personal fitness and nutrition information is primarily stored locally on your device. IronSet does not require you to create an account.
+
+## 1. Developer and contact information
+
+**Developer:** 4Food Production
+**Application:** IronSet
+**Privacy contact:** [ironset.app@outlook.com](mailto:ironset.app@outlook.com)
+
+If you have questions about this Privacy Policy, your data, or privacy-related requests, please contact us at the email address above.
+
+## 2. Information stored by IronSet
+
+IronSet allows you to record and manage your fitness and nutrition information.
+
+Depending on the features you use, IronSet may store information such as:
+
+- Age
+- Gender
+- Height
+- Weight
+- Exercise and workout information
+- Exercises performed
+- Number of repetitions
+- Weight used during exercises
+- Workout dates and times
+- Workout performance and related calculated metrics
+- Fatigue and training-related information
+- Meals and food information
+- Nutritional information, including calories and macronutrients
+- Recipes and meal information
+- Information generated from your use of IronSet's fitness and nutrition features
+
+This information is stored locally on your device.
+
+IronSet does not require you to create or maintain an IronSet account.
+
+## 3. Camera and meal photographs
+
+IronSet may request access to your device camera so that you can take a photograph of a meal.
+
+The camera is used only when you choose to use the meal photography feature.
+
+Meal photographs are not collected in the background and IronSet does not continuously access your camera.
+
+If you choose to use an AI-powered nutrition analysis feature, the photograph may be transmitted to Google's Gemini service for the purpose of analysing the meal and providing nutritional information.
+
+If you do not use the AI analysis feature, IronSet does not send your meal photograph to Gemini for that purpose.
+
+## 4. Voice recordings and voice commands
+
+IronSet provides voice-command functionality.
+
+When you choose to use a voice command, IronSet may access your device microphone and record audio for the purpose of processing your request.
+
+The recorded voice input may be transmitted to Google's Gemini service to process the request and provide a response or nutritional information.
+
+IronSet does not continuously record conversations or listen to the microphone in the background.
+
+Microphone access occurs when you actively use a voice-related feature.
+
+## 5. AI and Google Gemini
+
+IronSet provides optional AI-powered functionality using Google's Gemini services.
+
+Depending on the feature you choose to use, IronSet may send information to Gemini, including:
+
+- Photographs of meals
+- Voice commands or voice recordings
+- Information required to answer your request
+- Recent workout information when you explicitly request AI analysis of your training
+
+For example, when you request an AI analysis of your training, IronSet may send information from your recent workouts to Gemini so that the service can analyse your training data and provide the requested response.
+
+AI processing only occurs when you choose to use the relevant AI functionality.
+
+The information transmitted to Gemini is used to provide the AI functionality requested by you. Google's handling of information submitted to Gemini is also subject to Google's applicable terms, policies and privacy practices.
+
+You should avoid including unnecessary personal or confidential information in voice commands or other information submitted for AI processing.
+
+## 6. Your own Google Gemini API key
+
+IronSet may allow you to provide your own Google Gemini API key.
+
+If you choose to use this functionality, the API key is stored securely on your device and is used to authenticate requests made to Google's Gemini services.
+
+4Food Production does not require you to provide an API key to create or use the basic IronSet functionality.
+
+You are responsible for the Gemini API key you choose to use, including complying with Google's applicable terms and managing or revoking the key through your Google account or Google developer services when appropriate.
+
+## 7. Data storage
+
+IronSet is designed to store application data locally on your device.
+
+4Food Production does not operate an IronSet user account system or require you to upload your complete workout or nutrition history to an IronSet server.
+
+Your locally stored IronSet data remains on your device unless you choose to transmit specific information through an IronSet feature, such as an AI analysis or data export.
+
+## 8. Data sharing
+
+IronSet does not sell your personal information.
+
+IronSet does not use your personal information for advertising.
+
+IronSet does not use third-party advertising SDKs.
+
+When you explicitly use AI functionality, information necessary to provide that functionality may be transmitted to Google Gemini, as described in the "AI and Google Gemini" section of this Privacy Policy.
+
+Information may also be transmitted when you explicitly choose to export or otherwise share information using Android's sharing functionality.
+
+## 9. Data retention and deletion
+
+IronSet does not maintain a central IronSet account containing your personal data.
+
+Information stored locally by IronSet remains on your device until you delete it using the functionality provided by the application, remove the application, or otherwise delete the application's stored data through your device's Android settings.
+
+Because IronSet does not create user accounts, there is no IronSet account to delete.
+
+Information that you voluntarily send to third-party services, such as Google Gemini, may be subject to the retention and deletion policies of those services.
+
+If you have a privacy-related question concerning information handled by IronSet, you can contact us at:
+
+**[ironset.app@outlook.com](mailto:ironset.app@outlook.com)**
+
+## 10. Data security
+
+IronSet is designed to protect locally stored information using the security mechanisms provided by the Android operating system.
+
+Sensitive credentials, such as a user-provided Gemini API key, are stored using secure storage mechanisms available on Android.
+
+When information is transmitted to external services, IronSet uses secure network connections such as HTTPS where supported by the relevant service.
+
+However, no method of electronic storage or transmission can be guaranteed to be completely secure.
+
+## 11. Data export
+
+IronSet may provide functionality allowing you to export your workout, nutrition, or other application data.
+
+Exporting data is an action initiated by you. Once you export or share a file using Android's sharing functionality, the handling of that file is controlled by you and the application or service to which you choose to send it.
+
+## 12. Children's privacy
+
+IronSet is not specifically directed at children.
+
+We do not knowingly collect personal information from children through an IronSet account, because IronSet does not provide user accounts.
+
+If you believe that a child has provided personal information to us directly, please contact us at **[ironset.app@outlook.com](mailto:ironset.app@outlook.com)**.
+
+## 13. Permissions
+
+IronSet requests access to device features only when required for functionality that you choose to use.
+
+Depending on the version and features of the application, this may include:
+
+- **Camera:** to allow you to photograph meals.
+- **Microphone:** to allow you to use voice commands and voice-based AI functionality.
+
+IronSet does not use location services or Health Connect in the current version.
+
+IronSet does not access your calendar in the current version.
+
+## 14. Changes to this Privacy Policy
+
+We may update this Privacy Policy when IronSet's functionality, data practices, or applicable requirements change.
+
+When changes are made, the "Last updated" date at the beginning of this policy will be updated.
+
+We recommend reviewing this Privacy Policy periodically.
+
+## 15. Contact us
+
+If you have any questions, concerns, or requests regarding privacy or the handling of your information, please contact:
+
+**4Food Production**
+**Email:** [ironset.app@outlook.com](mailto:ironset.app@outlook.com)
+
+---
+
+**IronSet Privacy Policy**
+© 2026 4Food Production
