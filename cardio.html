@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="How IronSet keeps cardio workout timers running with Android foreground services."
+        />
+        <title>Cardio Workouts — IronSet Manual</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main class="container">
+            <div class="eyebrow">IronSet Documentation</div>
+            <h1>Cardio Workouts</h1>
+            <p class="subtitle">
+                How IronSet keeps workout timers and interval logic running
+                reliably when you leave the app or turn off your screen.
+            </p>
+
+            <nav class="toc" aria-label="Page navigation">
+                <span class="tag">Navigation</span>
+                <p>
+                    <a href="index.html">Home</a>
+                    &nbsp;·&nbsp;
+                    <a href="energy.html">Nutrition &amp; Meal Planning</a>
+                </p>
+            </nav>
+
+            <nav class="toc" aria-label="Contents">
+                <span class="tag">Contents</span>
+                <p>
+                    <a href="#overview">Overview</a>
+                    &nbsp;·&nbsp;
+                    <a href="#why-special-use">Why special use</a>
+                    &nbsp;·&nbsp;
+                    <a href="#requirements">Requirements</a>
+                    &nbsp;·&nbsp;
+                    <a href="#health-comparison">Health vs. special use</a>
+                </p>
+            </nav>
+
+            <h2 id="overview"><span class="num">1</span> Overview</h2>
+            <p class="section-desc">
+                Android 14 (API level 34) introduced stricter requirements for
+                foreground services. An app must declare a service type that
+                matches the work it performs. IronSet uses the special-use type
+                for its workout service when cardio timers and related workout
+                logic need to continue while the app is in the background.
+            </p>
+
+            <div class="card">
+                <h4><span class="idx">1</span> What special use means</h4>
+                <p class="desc">
+                    The <span class="label-strong">specialUse</span> type is
+                    intended for a critical, user-initiated foreground task that
+                    does not fit an available standard category. For IronSet,
+                    the service coordinates workout timers and related logic
+                    during a session.
+                </p>
+            </div>
+
+            <h2 id="why-special-use">
+                <span class="num">2</span> Why IronSet uses special use
+            </h2>
+            <p class="section-desc">
+                A cardio session may last a long time. The foreground service
+                helps keep the workout's timer and state active if the user
+                switches apps or the screen turns off.
+            </p>
+
+            <div class="grid-2">
+                <div class="metric-box">
+                    <div class="metric-name">Long-running workouts</div>
+                    <div class="metric-desc">
+                        Keeps timer and workout logic running through extended
+                        sessions instead of relying on the app remaining in the
+                        foreground.
+                    </div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-name">Coordinated workout behavior</div>
+                    <div class="metric-desc">
+                        Supports coordination such as interval timing, audio
+                        cues, and local workout data handling.
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <span class="icon" aria-hidden="true">ℹ️</span>
+                <div>
+                    <strong>Declare the purpose accurately.</strong> The
+                    selected service type and its description should match the
+                    behavior users actually receive from the app.
+                </div>
+            </div>
+
+            <h2 id="requirements">
+                <span class="num">3</span> Requirements for the service
+            </h2>
+            <p class="section-desc">
+                When using the special-use foreground service type, IronSet
+                should keep the service visible, tied to an explicit user
+                action, and limited to the time the workout needs it.
+            </p>
+
+            <div class="card">
+                <h4><span class="idx">1</span> User awareness</h4>
+                <p class="desc">
+                    Show an ongoing foreground-service notification while the
+                    service runs. IronSet starts foreground operation from its
+                    workout service using <code>startForeground()</code>.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">2</span> User initiation</h4>
+                <p class="desc">
+                    Start the service as the result of a clear user action, such
+                    as selecting
+                    <span class="label-strong">Start Workout</span>.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">3</span> Stop when no longer needed</h4>
+                <p class="desc">
+                    Stop the foreground service when the workout is finished or
+                    the user ends the session, so it does not continue running
+                    unnecessarily.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>
+                    <span class="idx">4</span> Explain the special-use subtype
+                </h4>
+                <p class="desc">
+                    Provide a concise subtype description in the app manifest
+                    that explains the user-facing purpose of the service. The
+                    project description is:
+                </p>
+                <div class="metric-box">
+                    <div class="metric-name">Foreground service subtype</div>
+                    <div class="metric-desc">
+                        Workout tracking and timer for physical exercise
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="health-comparison">
+                <span class="num">4</span> Health vs. special use
+            </h2>
+            <p class="section-desc">
+                Android also provides a health foreground-service type. Choose
+                the type that accurately describes the service's primary work
+                and permissions; a workout timer alone does not necessarily
+                require live health-sensor access.
+            </p>
+
+            <div class="card">
+                <h4>
+                    <span class="idx">1</span> When a health service may fit
+                </h4>
+                <p class="desc">
+                    If IronSet adds features that continuously read live heart
+                    rate or other health data, review whether the health type
+                    better matches those features and their applicable Android
+                    requirements.
+                </p>
+            </div>
+
+            <div class="summary-box">
+                <span class="tag">In Summary</span>
+                <p>
+                    IronSet uses a foreground service to support workout timers
+                    and related cardio-session behavior when the app is not on
+                    screen. Keep the declaration aligned with the app's real
+                    behavior, make the service user-initiated and visible, and
+                    stop it when the workout ends.
+                </p>
+            </div>
+        </main>
+    </body>
+</html>
