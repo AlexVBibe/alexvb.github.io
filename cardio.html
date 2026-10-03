@@ -14,10 +14,6 @@
         <main class="container">
             <div class="eyebrow">IronSet Documentation</div>
             <h1>Cardio Workouts</h1>
-            <p class="subtitle">
-                How IronSet keeps workout timers and interval logic running
-                reliably when you leave the app or turn off your screen.
-            </p>
 
             <nav class="toc" aria-label="Page navigation">
                 <span class="tag">Navigation</span>
@@ -30,18 +26,377 @@
 
             <nav class="toc" aria-label="Contents">
                 <span class="tag">Contents</span>
-                <p>
-                    <a href="#overview">Overview</a>
-                    &nbsp;·&nbsp;
-                    <a href="#why-special-use">Why special use</a>
-                    &nbsp;·&nbsp;
-                    <a href="#requirements">Requirements</a>
-                    &nbsp;·&nbsp;
-                    <a href="#health-comparison">Health vs. special use</a>
-                </p>
+                <ol>
+                    <li>
+                        <a href="#starting-cardio">Starting Cardio Workout</a>
+                    </li>
+                    <li>
+                        <a href="#overview"
+                            >Implementation Details: Special Permissions</a
+                        >
+                    </li>
+                    <li><a href="#why-special-use">Why special use</a></li>
+                    <li><a href="#requirements">Requirements</a></li>
+                    <li>
+                        <a href="#health-comparison">Health vs. special use</a>
+                    </li>
+                </ol>
             </nav>
 
-            <h2 id="overview"><span class="num">1</span> Overview</h2>
+            <h2 id="starting-cardio">
+                <span class="num">1</span> Starting Cardio Workout
+            </h2>
+            <p class="section-desc">
+                Set up your activity, follow your intervals, and review your
+                cardio progress. IronSet keeps the session timer available while
+                you work out, including when you need to switch apps.
+            </p>
+
+            <div class="card">
+                <h4><span class="idx">1</span> Setting Up Your Workout</h4>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Select Your Activity:</span>
+                        Choose your cardio type, such as running, cycling, or
+                        HIIT.
+                    </li>
+                    <li>
+                        <span class="label-strong">Define Intervals:</span>
+                        For HIIT, set the active duration for high-intensity
+                        work and the rest duration for recovery.
+                    </li>
+                    <li>
+                        <span class="label-strong">Start the Session:</span>
+                        Press Start to activate the foreground service. A
+                        persistent notification appears in the status bar to
+                        show that the workout timer is running.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">2</span> During the Workout</h4>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong"
+                            >The Screen Stays Awake:</span
+                        >
+                        By default, the workout screen stays awake so you can
+                        check your time and intervals at a glance.
+                    </li>
+                    <li>
+                        <span class="label-strong">Multitasking:</span> Leave
+                        the app to change music or answer a message. The
+                        foreground service keeps tracking elapsed time in the
+                        background.
+                    </li>
+                    <li>
+                        <span class="label-strong"
+                            >Notifications &amp; Cues:</span
+                        >
+                        Receive vibration or sound cues when it is time to
+                        switch between active and rest intervals, even when the
+                        phone is in your pocket.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">3</span> Ending and Progress Tracking</h4>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Save Your Data:</span> When
+                        you finish, the app calculates your total active time
+                        and total rest time.
+                    </li>
+                    <li>
+                        <span class="label-strong">Lifetime Stats:</span>
+                        Cardio minutes are added to your global profile. View
+                        how your endurance changes over time in the Statistics
+                        tab.
+                    </li>
+                    <li>
+                        <span class="label-strong">Battery Efficiency:</span>
+                        When you tap Stop or Finish, the background service
+                        shuts down to conserve battery.
+                    </li>
+                </ul>
+            </div>
+
+            <h3 class="sub">Welcome to the Cardio Timer</h3>
+            <p class="section-desc">
+                This screen is designed to guide you through your high-intensity
+                intervals (HIIT), runs, or cycling sessions. It acts as your
+                personal coach, keeping track of every second so you can focus
+                entirely on your workout.
+            </p>
+
+            <div class="card">
+                <h4><span class="idx">1</span> Setting Your Intervals</h4>
+                <p class="desc">
+                    Use the number pickers at the top of the screen:
+                </p>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Work:</span> Choose the
+                        duration, in minutes or seconds, for your high-intensity
+                        phase. This is when you go all out!
+                    </li>
+                    <li>
+                        <span class="label-strong">Rest:</span> Choose how long
+                        you need to recover before the next burst.
+                    </li>
+                    <li>
+                        <span class="label-strong"
+                            >Repeat / Cycle exercises:</span
+                        >
+                        When checked, the app automatically switches between
+                        Work and Rest until you decide to stop.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">2</span> Controlling the Workout</h4>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">START (Green):</span> Begins
+                        your session and starts a background service. You can
+                        lock your phone or switch to your music app while
+                        IronSet keeps the timer accurate.
+                    </li>
+                    <li>
+                        <span class="label-strong">PAUSE (Yellow):</span>
+                        Temporarily stops the timer if you need a break.
+                    </li>
+                    <li>
+                        <span class="label-strong">FINISH (Red):</span> Ends the
+                        session and prepares your data to be saved to your
+                        lifetime statistics.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">3</span> Recorded Intervals Summary</h4>
+                <p class="desc">
+                    As you exercise, the app builds a live log of your
+                    intervals:
+                </p>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Green labels:</span>
+                        Represent your Active or Work intervals.
+                    </li>
+                    <li>
+                        <span class="label-strong">Red labels:</span>
+                        Represent your Rest or Recovery intervals.
+                    </li>
+                    <li>
+                        <span class="label-strong">Interval details:</span>
+                        Each entry shows its start time, end time, and total
+                        duration (for example, 2.0m).
+                    </li>
+                    <li>
+                        <span class="label-strong">Correcting a mistake:</span>
+                        Tap the Trash icon next to an interval to remove it from
+                        your session summary.
+                    </li>
+                </ul>
+            </div>
+
+            <h3 class="sub">What to Expect During Your Workout</h3>
+            <div class="card">
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong"
+                            >The Screen Won't Go Dark:</span
+                        >
+                        While you are on this screen, the phone stays awake so
+                        you can see your progress without touching the screen.
+                    </li>
+                    <li>
+                        <span class="label-strong"
+                            >Background Reliability:</span
+                        >
+                        If you put the phone in your pocket, the foreground
+                        service (indicated by the status-bar icon) helps keep
+                        the timer running. You will still receive signals when
+                        it is time to switch between Work and Rest.
+                    </li>
+                    <li>
+                        <span class="label-strong">Auto-Saving:</span> When you
+                        tap Finish, the recorded intervals are processed. The
+                        app calculates your total active time and total rest
+                        time, then adds them to your global Cardio Statistics so
+                        you can track your progress over time.
+                    </li>
+                </ul>
+            </div>
+
+            <figure class="screen-placeholder">
+                <img
+                    src="images/cardio-setup-intervals.jpeg"
+                    alt="Cardio workout setup showing interval options"
+                    style="max-width: 100%; border-radius: 8px"
+                />
+                <figcaption>Cardio interval options</figcaption>
+            </figure>
+
+            <h3 class="sub">Active Cardio Dashboard</h3>
+            <p class="section-desc">
+                This screen is your Active Cardio Dashboard. It provides
+                real-time tracking, visual cues, and interval management for
+                your workout, and is designed to stay active and accurate even
+                during long sessions.
+            </p>
+
+            <div class="card">
+                <h4><span class="idx">1</span> The Workout Header</h4>
+                <p class="desc">
+                    The status panel at the top gives you an immediate overview
+                    of your current progress:
+                </p>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Exercise Type:</span>
+                        Shows the activity you are performing, such as Ski
+                        Ergometer.
+                    </li>
+                    <li>
+                        <span class="label-strong"
+                            >Duration &amp; Time Left:</span
+                        >
+                        Displays your target duration and how much time remains
+                        in the current cycle.
+                    </li>
+                    <li>
+                        <span class="label-strong">Current Mode (DO IT):</span>
+                        This is your live instruction. When it appears in green,
+                        you are in your active work phase.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">2</span> Cycle Configuration</h4>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Cycle Duration:</span> Use
+                        the scrollable number picker to choose how many minutes
+                        each full cycle lasts (shown as 5 minutes in the
+                        example).
+                    </li>
+                    <li>
+                        <span class="label-strong"
+                            >Cycle Exercises checkbox:</span
+                        >
+                        When checked, the app automatically restarts the timer
+                        for a new cycle when the current one finishes, allowing
+                        continuous, hands-free training.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">3</span> The Interval Timeline</h4>
+                <p class="desc">
+                    The Rest/Activity Intervals bar provides a visual map of
+                    your workout:
+                </p>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Green section:</span>
+                        Represents your high-intensity Active Zone.
+                    </li>
+                    <li>
+                        <span class="label-strong">Brown section:</span>
+                        Represents your Rest/Recovery Zone.
+                    </li>
+                    <li>
+                        <span class="label-strong">Yellow arrow:</span> Shows
+                        your position in the current cycle. As it moves across
+                        the bar, you can see how much work remains before your
+                        next rest period.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4><span class="idx">4</span> Controls and Live Timer</h4>
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Action buttons:</span>
+                        <ul class="nested">
+                            <li>
+                                <span class="label-strong">START:</span> Begins
+                                the workout and activates the background
+                                service.
+                            </li>
+                            <li>
+                                <span class="label-strong">PAUSE:</span>
+                                Temporarily halts the timer.
+                            </li>
+                            <li>
+                                <span class="label-strong">FINISH:</span> Ends
+                                the session and saves your progress to your
+                                lifetime statistics.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="label-strong">Active ZONE Timer:</span>
+                        The large digits at the bottom show elapsed time for
+                        your current phase. A green background indicates you are
+                        in the Active portion of your interval.
+                    </li>
+                </ul>
+            </div>
+
+            <h3 class="sub">Reliability Features</h3>
+            <p class="section-desc">
+                Behind the scenes, Android features help protect your tracking
+                during long cardio workouts:
+            </p>
+            <div class="card">
+                <ul class="top-level">
+                    <li>
+                        <span class="label-strong">Continuous Tracking:</span>
+                        Even if you switch to a music app or the screen turns
+                        off, the IronSet foreground service (indicated by a
+                        notification) keeps the timer running and delivers
+                        transition signals.
+                    </li>
+                    <li>
+                        <span class="label-strong">Always-On Display:</span>
+                        The screen stays awake while this dashboard is visible,
+                        so you can monitor intervals without touching the phone
+                        during exercise.
+                    </li>
+                    <li>
+                        <span class="label-strong">Automatic Data Saving:</span>
+                        When you tap Finish, the app calculates your total
+                        active time and adds it to your cumulative cardio
+                        history.
+                    </li>
+                </ul>
+            </div>
+
+            <figure class="screen-placeholder">
+                <img
+                    src="images/cardio-setup-interval-custom.jpeg"
+                    alt="Cardio workout setup with custom interval controls"
+                    style="max-width: 100%; border-radius: 8px"
+                />
+                <figcaption>Custom cardio interval setup</figcaption>
+            </figure>
+
+            <h2 id="overview"><span class="num">2</span> Overview</h2>
+            <p class="subtitle">
+                How IronSet keeps workout timers and interval logic running
+                reliably when you leave the app or turn off your screen.
+            </p>
+
             <p class="section-desc">
                 Android 14 (API level 34) introduced stricter requirements for
                 foreground services. An app must declare a service type that
@@ -62,7 +417,7 @@
             </div>
 
             <h2 id="why-special-use">
-                <span class="num">2</span> Why IronSet uses special use
+                <span class="num">3</span> Why IronSet uses special use
             </h2>
             <p class="section-desc">
                 A cardio session may last a long time. The foreground service
@@ -98,7 +453,7 @@
             </div>
 
             <h2 id="requirements">
-                <span class="num">3</span> Requirements for the service
+                <span class="num">4</span> Requirements for the service
             </h2>
             <p class="section-desc">
                 When using the special-use foreground service type, IronSet
@@ -151,7 +506,7 @@
             </div>
 
             <h2 id="health-comparison">
-                <span class="num">4</span> Health vs. special use
+                <span class="num">5</span> Health vs. special use
             </h2>
             <p class="section-desc">
                 Android also provides a health foreground-service type. Choose
